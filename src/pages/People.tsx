@@ -4,20 +4,20 @@ import { Music, Users, Crown, Mic2 } from 'lucide-react';
 const People = () => {
     const executives = [
         { role: '대장', name: '유용길', title: '안수집사', phone: '010-8814-8844' },
-        { role: '총무', name: '김일규', title: '안수집사', phone: '010-3237-1919' },
-        { role: '서기', name: '김영길', title: '청년', phone: '010-8712-2085' },
-        { role: '회계', name: '조규창', title: '장로', phone: '010-6343-1021' },
-        { role: '친교부장', name: '곽정기', title: '집사', phone: '010-3994-3977' },
+        { role: '총무', name: '', title: '', phone: '' },
+        { role: '서기', name: '', title: '', phone: '' },
+        { role: '회계', name: '', title: '', phone: '' },
+        { role: '친교부장', name: '', title: '', phone: '' },
     ];
 
     const partLeaders = [
-        { role: '테너 파트장', name: '김일규', title: '안수집사', phone: '010-3237-1919' },
-        { role: '베이스 파트장', name: '엄웅섭', title: '장로', phone: '010-2763-9907' },
+        { role: '테너 파트장', name: '', title: '', phone: '' },
+        { role: '베이스 파트장', name: '', title: '', phone: '' },
     ];
 
     const musicians = [
-        { role: '지휘자', name: '김동열', title: '집사', phone: '010-9814-1011' },
-        { role: '반주자', name: '임혜지', title: '청년', phone: '010-3752-7661' },
+        { role: '지휘자', name: '함서현', title: '', phone: '010-2435-5877' },
+        { role: '반주자', name: '', title: '', phone: '' },
     ];
 
     const tenors = [
@@ -61,12 +61,14 @@ const People = () => {
                             <div key={index} className="person-card musician">
                                 <div className="person-role">{person.role}</div>
                                 <div className="person-info">
-                                    <span className="person-name">{person.name}</span>
-                                    <span className="person-title">{person.title}</span>
+                                    <span className="person-name">{person.name || '-'}</span>
+                                    {person.title && <span className="person-title">{person.title}</span>}
                                 </div>
-                                <a href={`tel:${person.phone}`} className="person-phone">
-                                    📞 {person.phone}
-                                </a>
+                                {person.phone && (
+                                    <a href={`tel:${person.phone}`} className="person-phone">
+                                        📞 {person.phone}
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -84,12 +86,14 @@ const People = () => {
                             <div key={index} className="person-card">
                                 <div className="person-role">{person.role}</div>
                                 <div className="person-info">
-                                    <span className="person-name">{person.name}</span>
-                                    <span className="person-title">{person.title}</span>
+                                    <span className="person-name">{person.name || '-'}</span>
+                                    {person.title && <span className="person-title">{person.title}</span>}
                                 </div>
-                                <a href={`tel:${person.phone}`} className="person-phone">
-                                    📞 {person.phone}
-                                </a>
+                                {person.phone && (
+                                    <a href={`tel:${person.phone}`} className="person-phone">
+                                        📞 {person.phone}
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -107,12 +111,14 @@ const People = () => {
                             <div key={index} className="person-card">
                                 <div className="person-role">{person.role}</div>
                                 <div className="person-info">
-                                    <span className="person-name">{person.name}</span>
-                                    <span className="person-title">{person.title}</span>
+                                    <span className="person-name">{person.name || '-'}</span>
+                                    {person.title && <span className="person-title">{person.title}</span>}
                                 </div>
-                                <a href={`tel:${person.phone}`} className="person-phone">
-                                    📞 {person.phone}
-                                </a>
+                                {person.phone && (
+                                    <a href={`tel:${person.phone}`} className="person-phone">
+                                        📞 {person.phone}
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
