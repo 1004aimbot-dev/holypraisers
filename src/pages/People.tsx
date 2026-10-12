@@ -20,26 +20,9 @@ const People = () => {
         { role: '반주자', name: '', title: '', phone: '' },
     ];
 
-    const tenors = [
-        { name: '김영길', title: '청년', phone: '010-8712-2085' },
-        { name: '김일규', title: '안수집사', phone: '010-3237-1919' },
-        { name: '손병태', title: '장로', phone: '010-4735-8488' },
-        { name: '유용길', title: '안수집사', phone: '010-8814-8844' },
-        { name: '이강우', title: '장로', phone: '010-5325-2448' },
-    ];
+    const tenors: { name: string; title: string; phone: string }[] = [];
 
-    const basses = [
-        { name: '곽정기', title: '집사', phone: '010-3994-3977' },
-        { name: '김문', title: '청년', phone: '010-7705-0191' },
-        { name: '김용수', title: '집사', phone: '010-8886-2825' },
-        { name: '손은익', title: '장로', phone: '010-3757-6178' },
-        { name: '송인수', title: '집사', phone: '010-4488-0139' },
-        { name: '엄웅섭', title: '장로', phone: '010-2763-9907' },
-        { name: '여성구', title: '장로', phone: '010-2575-9176' },
-        { name: '조규창', title: '장로', phone: '010-6343-1021' },
-        { name: '최현철', title: '장로', phone: '010-4234-3479' },
-        { name: '홍영식', title: '집사', phone: '010-2944-4640' },
-    ];
+    const basses: { name: string; title: string; phone: string }[] = [];
 
     return (
         <div className="people-page">
@@ -133,34 +116,46 @@ const People = () => {
                     </div>
 
                     <h3 className="text-serif" style={{ color: 'var(--color-primary)', marginBottom: '1rem', marginTop: '1rem' }}>Tenor (테너)</h3>
-                    <div className="people-grid compact">
-                        {tenors.map((person, index) => (
-                            <div key={index} className="person-card compact">
-                                <div className="person-info">
-                                    <span className="person-name small">{person.name}</span>
-                                    <span className="person-title small">{person.title}</span>
+                    {tenors.length > 0 ? (
+                        <div className="people-grid compact">
+                            {tenors.map((person, index) => (
+                                <div key={index} className="person-card compact">
+                                    <div className="person-info">
+                                        <span className="person-name small">{person.name}</span>
+                                        {person.title && <span className="person-title small">{person.title}</span>}
+                                    </div>
+                                    {person.phone && (
+                                        <a href={`tel:${person.phone}`} className="person-phone small">
+                                            {person.phone}
+                                        </a>
+                                    )}
                                 </div>
-                                <a href={`tel:${person.phone}`} className="person-phone small">
-                                    {person.phone}
-                                </a>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', padding: '0.5rem 0 1rem' }}>단원 명단을 준비 중입니다.</p>
+                    )}
 
-                    <h3 className="text-serif" style={{ color: 'var(--color-primary)', marginBottom: '1rem', marginTop: '2.5rem' }}>Bass (베이스)</h3>
-                    <div className="people-grid compact">
-                        {basses.map((person, index) => (
-                            <div key={index} className="person-card compact">
-                                <div className="person-info">
-                                    <span className="person-name small">{person.name}</span>
-                                    <span className="person-title small">{person.title}</span>
+                    <h3 className="text-serif" style={{ color: 'var(--color-primary)', marginBottom: '1rem', marginTop: '1.5rem' }}>Bass (베이스)</h3>
+                    {basses.length > 0 ? (
+                        <div className="people-grid compact">
+                            {basses.map((person, index) => (
+                                <div key={index} className="person-card compact">
+                                    <div className="person-info">
+                                        <span className="person-name small">{person.name}</span>
+                                        {person.title && <span className="person-title small">{person.title}</span>}
+                                    </div>
+                                    {person.phone && (
+                                        <a href={`tel:${person.phone}`} className="person-phone small">
+                                            {person.phone}
+                                        </a>
+                                    )}
                                 </div>
-                                <a href={`tel:${person.phone}`} className="person-phone small">
-                                    {person.phone}
-                                </a>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', padding: '0.5rem 0 1rem' }}>단원 명단을 준비 중입니다.</p>
+                    )}
                 </section>
             </main>
         </div>
